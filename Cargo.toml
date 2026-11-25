@@ -1,0 +1,23 @@
+[package]
+name          = "pipevine"
+version       = "0.1.0"
+edition       = "2024"
+description   = "Pipelining with placeholder"
+authors       = ["Aditya Singh <antichrome1@proton.me>"]
+documentation = "https://docs.rs/pipevine/"
+homepage      = "https://crates.io/crates/pipevine"
+repository    = "https://github.com/antichrome1/pipevine-rs"
+license       = "ISC"
+readme        = "README.md"
+keywords      = ["proc-macro", "pipeline"]
+categories    = ["rust-patterns", "development-tools"]
+exclude       = ["justfile"]
+
+[lib]
+path       = "pipevine.rs"
+proc-macro = true
+
+[dependencies]
+syn         = "3"
+quote       = "1"
+proc-macro2 = "1"
