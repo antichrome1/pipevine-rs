@@ -61,7 +61,7 @@ fn expand(input: proc_macro2::TokenStream) -> Result<proc_macro2::TokenStream, S
     }
 
     let mut output = quote! {
-        let temp_val = #initial;
+        let _____pipevine_____ = #initial;
     };
 
     for (step, has_placeholder) in steps {
@@ -69,18 +69,18 @@ fn expand(input: proc_macro2::TokenStream) -> Result<proc_macro2::TokenStream, S
 
         if has_placeholder {
             output.extend(quote! {
-                let temp_val = { #step };
+                let _____pipevine_____ = { #step };
             });
         } else {
             output.extend(quote! {
-                let temp_val = (#step)(temp_val);
+                let _____pipevine_____ = (#step)(_____pipevine_____);
             });
         }
     }
 
     Ok(quote!({
         #output
-        temp_val
+        _____pipevine_____
     }))
 }
 
@@ -112,7 +112,7 @@ fn replace_placeholders(tokens: &[TokenTree]) -> (Vec<TokenTree>, bool) {
             && matches!(&tokens[i + 1], TokenTree::Punct(p) if p.as_char() == '>')
         {
             output.push(TokenTree::Ident(Ident::new(
-                "temp_val",
+                "_____pipevine_____",
                 Span::call_site(),
             )));
             found = true;
