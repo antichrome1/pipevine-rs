@@ -10,14 +10,14 @@ fn increment(x: i32) -> i32 {x + 1}
 #[test]
 fn one() {
     let result = pipevine!(5,
-                       add(1, <>),
-                       mul(<>, 3),
-                       double,
-                       add(10, mul(<>, 2)),
-                       |x| x + 4,
-                       <> + <> - 2,
-                       if <> % 2 == 0 { <> / 2 } else { <> * 3 + 1 },
-                       negate,
+                           add(1, <>),
+                           mul(<>, 3),
+                           double,
+                           add(10, mul(<>, 2)),
+                           |x| x + 4,
+                           <> + <> - 2,
+                           if <> % 2 == 0 { <> / 2 } else { <> * 3 + 1 },
+                           negate,
     );
     assert_eq!(-85, result);
 }
